@@ -7,18 +7,11 @@ import tempfile
 import os
 
 
-# whisper_model = WhisperModel("/ssd1/yujunqiu/model_zoo/Systran/faster-whisper-large-v2", device="cuda")
-
-
-# audio_path = "/tmp/tmpjol9m22n.wav"
-# result = whisper_model.transcribe(audio_path)
-
-
 class AudioProcessingAgent:
     def __init__(self,
                  vad_model: str = "pyannote/voice-activity-detection",
                  diarization_model: str = "pyannote/speaker-diarization",
-                 whisper_model: str = "/home/dell/mwy/faster-whisper-large-v2",
+                 whisper_model: str = "Systran/faster-whisper-large-v2",
                  whisper_device: str = "cuda"):
         self.vad_pipeline = Pipeline.from_pretrained(vad_model)
         self.diarization_pipeline = Pipeline.from_pretrained(diarization_model)
